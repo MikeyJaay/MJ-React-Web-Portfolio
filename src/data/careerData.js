@@ -8,7 +8,7 @@ export const careerHistory = [
         start: new Date("2015-08"),
         end: new Date("2019-05")
       },
-      imgUrl: '',
+      imgUrl: 'src/assets/job-logos/cmu-logo.jpeg',
       description: [
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus tempora pariatur voluptates fugiat necessitatibus fuga molestiae veniam libero accusantium in saepe dicta explicabo quae, beatae deserunt, nisi aperiam harum eum!"
       ]
@@ -23,7 +23,7 @@ export const careerHistory = [
           start: new Date("2019-05"),
           end: new Date("2019-08")
         },
-        imgUrl: '',
+        imgUrl: 'src/assets/job-logos/sfc-logo.jpeg',
         description: [
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus tempora pariatur voluptates fugiat necessitatibus fuga molestiae veniam libero accusantium in saepe dicta explicabo quae, beatae deserunt, nisi aperiam harum eum!"
         ]
@@ -38,7 +38,7 @@ export const careerHistory = [
           start: new Date("2019-11"),
           end: new Date("2021-10")
         },
-        imgUrl: '',
+        imgUrl: 'src/assets/job-logos/dominos_pizza_logo.jpeg',
         description: [
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus tempora pariatur voluptates fugiat necessitatibus fuga molestiae veniam libero accusantium in saepe dicta explicabo quae, beatae deserunt, nisi aperiam harum eum!"
         ]
@@ -53,7 +53,7 @@ export const careerHistory = [
           start: new Date("2021-05"),
           end: new Date("2024-04")
         },
-        imgUrl: '',
+        imgUrl: 'src/assets/job-logos/ou-logo.jpeg',
         description: [
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus tempora pariatur voluptates fugiat necessitatibus fuga molestiae veniam libero accusantium in saepe dicta explicabo quae, beatae deserunt, nisi aperiam harum eum!"
         ]
@@ -68,7 +68,7 @@ export const careerHistory = [
           start: new Date("2021-10"),
           end: new Date("2022-03")
         },
-        imgUrl: '',
+        imgUrl: 'src/assets/job-logos/veryable-logo.jpeg',
         description: [
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus tempora pariatur voluptates fugiat necessitatibus fuga molestiae veniam libero accusantium in saepe dicta explicabo quae, beatae deserunt, nisi aperiam harum eum!"
         ]
@@ -83,7 +83,7 @@ export const careerHistory = [
           start: new Date("2022-03"),
           end: new Date("2023-02")
         },
-        imgUrl: '',
+        imgUrl: 'src/assets/job-logos/codility_logo.jpeg',
         description: [
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus tempora pariatur voluptates fugiat necessitatibus fuga molestiae veniam libero accusantium in saepe dicta explicabo quae, beatae deserunt, nisi aperiam harum eum!"
         ]
@@ -98,7 +98,7 @@ export const careerHistory = [
           start: new Date("2023-02"),
           end: new Date("2024-01")
         },
-        imgUrl: '',
+        imgUrl: 'src/assets/job-logos/hackajob_logo.jpeg',
         description: [
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus tempora pariatur voluptates fugiat necessitatibus fuga molestiae veniam libero accusantium in saepe dicta explicabo quae, beatae deserunt, nisi aperiam harum eum!"
         ]
@@ -113,7 +113,7 @@ export const careerHistory = [
           start: new Date("2024-01"),
           end: new Date("2024-03")
         },
-        imgUrl: './src/assets/placeholder.jpg',
+        imgUrl: 'src/assets/job-logos/fullstack-acad-logo.png',
         description: [
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus tempora pariatur voluptates fugiat necessitatibus fuga molestiae veniam libero accusantium in saepe dicta explicabo quae, beatae deserunt, nisi aperiam harum eum!"
         ]
