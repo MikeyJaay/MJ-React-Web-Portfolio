@@ -5,6 +5,7 @@ import About from './pages/About.jsx';
 import Projects from './pages/Projects.jsx';
 import Contact from './pages/Contact.jsx';
 import Navbar from './components/Navabar.jsx';
+import Career from './pages/Career.jsx';
 import './App.css'
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/Career" element={<Career />} />
       </Routes>
     </Router>
   );

@@ -1,0 +1,52 @@
+main {
+    background-color: #ebe8ed;
+}
+
+
+/* Hide content initially */
+.timeline-content .details {
+    display: none;
+  }
+  
+  /* Initial state: fully visible */
+  .timeline-content img {
+    opacity: 1; /* Set to fully visible */
+    transition: opacity 0.5s ease; /* Transition opacity changes over 0.5 seconds */
+    border-radius: 50px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Hide content when 'show' class is NOT applied */
+  .timeline-content img:not(.show) {
+    opacity: 0; /* Set to fully transparent if 'show' class is not applied */
+  }
+
+
+  /* Adjust black line position */
+.timeline {
+    position: relative;
+    display: flex;
+   flex-direction: column;
+   align-items: center;
+  }
+
+
+  .timeline-item {
+    margin-bottom: 800px; /* Adjust this value to increase or decrease the spacing */
+  }
+
+
+
+  
+  /* Timeline line */
+  .timeline-line {
+    position: absolute;
+    left: calc(50% - 7.5px); /* Adjusted left position */
+    top: 0;
+    bottom: 0;
+    width: 15px;
+    background-color: black;
+    z-index: 1;
+    border-radius: 10px;
+  }
