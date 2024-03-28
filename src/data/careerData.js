@@ -113,7 +113,7 @@ export const careerHistory = [
           start: new Date("2024-01"),
           end: new Date("2024-03")
         },
-        imgUrl: '',
+        imgUrl: './src/assets/placeholder.jpg',
         description: [
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus tempora pariatur voluptates fugiat necessitatibus fuga molestiae veniam libero accusantium in saepe dicta explicabo quae, beatae deserunt, nisi aperiam harum eum!"
         ]
