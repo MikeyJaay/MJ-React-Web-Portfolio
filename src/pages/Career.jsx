@@ -3,28 +3,26 @@ import '../styles/Career.css';
 import { careerHistory } from '../data/careerData';
 
 function Career() {
-  const [showDetails, setShowDetails] = useState({});
+  const [visibleItems, setVisibleItems] = useState([]);
 
   useEffect(() => {
     const handleScroll = () => {
-      const timeline = document.querySelector('.timeline');
-      if (timeline) {
-        const timelineRect = timeline.getBoundingClientRect();
-        const timelineCenter = timelineRect.top + timelineRect.height / 2;
-        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-    
-        // Check if each timeline item is in the viewport
-        const updatedShowDetails = {};
-        careerHistory.forEach((entry) => {
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+      // Check if each timeline item is in the viewport
+      const newVisibleItems = careerHistory
+        .filter(entry => {
           const item = document.getElementById(`timeline-item-${entry.id}`);
           if (item) {
             const itemRect = item.getBoundingClientRect();
             const itemCenter = itemRect.top + itemRect.height / 2;
-            updatedShowDetails[entry.id] = window.scrollY + windowHeight >= itemCenter;
+            return window.scrollY + windowHeight >= itemCenter;
           }
-        });
-        setShowDetails(updatedShowDetails);
-      }
+          return false;
+        })
+        .map(entry => entry.id);
+
+      setVisibleItems(newVisibleItems);
     };
 
     // Add scroll event listener
@@ -41,7 +39,7 @@ function Career() {
       {/* Hero Section */}
       <section className="hero">
         <h1>Timeline Of My Career</h1>
-        <p>I'm Michael a Product Marketing Manager and Part-Time Coder</p>
+        <p>I'm Michael, a Product Marketing Manager and Part-Time Coder</p>
         <button>View My Work</button>
       </section>
 
@@ -49,19 +47,17 @@ function Career() {
       <section className="timeline">
         <div className="timeline-line"></div>
         {careerHistory.map((entry) => (
-          <div className="timeline-item" key={entry.id} id={`timeline-item-${entry.id}`}>
+          <div className={`timeline-item ${visibleItems.includes(entry.id) ? 'visible' : ''}`} key={entry.id} id={`timeline-item-${entry.id}`}>
             <div className="timeline-content">
-              <img className={`logo ${showDetails[entry.id] ? 'show' : ''}`} src={entry.imgUrl} alt={entry.name} />
-              {showDetails[entry.id] && (
-                <div className="details">
-                  <h2>{entry.name}</h2>
-                  <p>{entry.title}</p>
-                  <p>{entry.dates.start.toDateString()} - {entry.dates.end.toDateString()}</p>
-                  {entry.description.map((desc, index) => (
-                    <p key={index}>{desc}</p>
-                  ))}
-                </div>
-              )}
+              <img className={`logo ${visibleItems.includes(entry.id) ? 'show' : ''}`} src={entry.imgUrl} alt={entry.name} />
+              <div className={`details ${visibleItems.includes(entry.id) ? 'show' : ''}`}>
+                <h2>{entry.name}</h2>
+                <p>{entry.title}</p>
+                <p>{entry.dates.start.toDateString()} - {entry.dates.end.toDateString()}</p>
+                {entry.description.map((desc, index) => (
+                  <p key={index}>{desc}</p>
+                ))}
+              </div>
             </div>
           </div>
         ))}
