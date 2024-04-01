@@ -2,51 +2,35 @@ main {
     background-color: #ebe8ed;
 }
 
+/* Timeline Style */
+.timeline-icon {
+  width: 100%; /* Ensure this class is still defined to maintain the size of your icons */
+  border-radius: 50px;
+}
 
-/* Hide content initially */
-.timeline-content .details {
-    display: none;
-  }
-  
-  /* Initial state: fully visible */
-  .timeline-content img {
-    opacity: 1; /* Set to fully visible */
-    transition: opacity 0.5s ease; /* Transition opacity changes over 0.5 seconds */
-    border-radius: 50px;
-    position: relative;
-    z-index: 2;
-  }
-  
-  /* Hide content when 'show' class is NOT applied */
-  .timeline-content img:not(.show) {
-    opacity: 0; /* Set to fully transparent if 'show' class is not applied */
-  }
+.timeline-icon-bg-blue {
+  /* Assuming you're setting the background of the icon container, but this should be set on the parent element or handled differently since these classes are applied to the <img> */
+  background: rgb(33, 150, 243);
+}
 
+.timeline-icon-bg-pink {
+  /* As above, ensure this is the intended effect since it applies to <img> */
+  background: rgb(233, 30, 99);
+}
+.time-line {
+  /* background-color: red; */
+}
 
-  /* Adjust black line position */
-.timeline {
-    position: relative;
-    display: flex;
-   flex-direction: column;
-   align-items: center;
-  }
+.vertical-timeline-element-content {
+  /* Add your styles here */
+  background: #ffffff; 
+  /* border: 2px solid #a8a7a7; */
+  /* box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2); */
+}
 
+.vertical-timeline-element-date {
+  font-weight: bold;
+  color: black;
+  font-style: italic;
 
-  .timeline-item {
-    margin-bottom: 800px; /* Adjust this value to increase or decrease the spacing */
-  }
-
-
-
-  
-  /* Timeline line */
-  .timeline-line {
-    position: absolute;
-    left: calc(50% - 7.5px); /* Adjusted left position */
-    top: 0;
-    bottom: 0;
-    width: 15px;
-    background-color: black;
-    z-index: 1;
-    border-radius: 10px;
-  }
+}
