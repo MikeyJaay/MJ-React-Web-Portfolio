@@ -1,66 +1,34 @@
-import React, { useState, useEffect } from 'react';
-import '../styles/Career.css';
-import { careerHistory } from '../data/careerData';
+import React from "react";
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
+import { careerHistory } from "../data/careerData";
+import "../styles/Career.css";
 
 function Career() {
-  const [visibleItems, setVisibleItems] = useState([]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-
-      // Check if each timeline item is in the viewport
-      const newVisibleItems = careerHistory
-        .filter(entry => {
-          const item = document.getElementById(`timeline-item-${entry.id}`);
-          if (item) {
-            const itemRect = item.getBoundingClientRect();
-            const itemCenter = itemRect.top + itemRect.height / 2;
-            return window.scrollY + windowHeight >= itemCenter;
-          }
-          return false;
-        })
-        .map(entry => entry.id);
-
-      setVisibleItems(newVisibleItems);
-    };
-
-    // Add scroll event listener
-    window.addEventListener('scroll', handleScroll);
-
-    // Clean up event listener on component unmount
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   return (
-    <main>
-      {/* Hero Section */}
-      <section className="hero">
-        <h1>Timeline Of My Career</h1>
-        <p>I'm Michael, a Product Marketing Manager and Part-Time Coder</p>
-        <button>View My Work</button>
+     <main>
+      <section>
+        <h1>Story of My Career</h1>
       </section>
-
-      {/* Timeline Section */}
-      <section className="timeline">
-        <div className="timeline-line"></div>
-        {careerHistory.map((entry) => (
-          <div className={`timeline-item ${visibleItems.includes(entry.id) ? 'visible' : ''}`} key={entry.id} id={`timeline-item-${entry.id}`}>
-            <div className="timeline-content">
-              <img className={`logo ${visibleItems.includes(entry.id) ? 'show' : ''}`} src={entry.imgUrl} alt={entry.name} />
-              <div className={`details ${visibleItems.includes(entry.id) ? 'show' : ''}`}>
-                <h2>{entry.name}</h2>
-                <p>{entry.title}</p>
-                <p>{entry.dates.start.toDateString()} - {entry.dates.end.toDateString()}</p>
-                {entry.description.map((desc, index) => (
-                  <p key={index}>{desc}</p>
-                ))}
-              </div>
-            </div>
-          </div>
-        ))}
+      <section className="time-line">
+        
+        <VerticalTimeline>
+          {careerHistory.map((job) => (
+           <VerticalTimelineElement
+           key={job.id}
+           className={`vertical-timeline-element--${job.type.toLowerCase()}`}
+           date={`${job.dates.start.toLocaleDateString()} - ${job.dates.end.toLocaleDateString()}`}
+           icon={<img src={job.imgUrl} alt={job.name} className={`timeline-icon ${job.type === "Work" ? 'timeline-icon-bg-blue' : 'timeline-icon-bg-pink'}`} />}
+         >
+              <h3 className="vertical-timeline-element-title">{job.title}</h3>
+              <h4 className="vertical-timeline-element-subtitle">{job.name}</h4>
+              <p>{job.description}</p>
+            </VerticalTimelineElement>
+          ))}
+        </VerticalTimeline>
       </section>
     </main>
   );
